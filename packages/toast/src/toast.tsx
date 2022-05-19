@@ -28,6 +28,11 @@ export const Toast: React.FC<ToastProps> = (props) => {
     onClose,
     description,
     icon,
+    borderRadius = "md",
+    alignItems = "start",
+    boxShadow = "lg",
+    textAlign = "start",
+    width = "auto",
   } = props
 
   const alertTitleId =
@@ -38,12 +43,12 @@ export const Toast: React.FC<ToastProps> = (props) => {
       status={status}
       variant={variant}
       id={String(id)}
-      alignItems="start"
-      borderRadius="md"
-      boxShadow="lg"
+      alignItems={alignItems}
+      borderRadius={borderRadius}
+      boxShadow={boxShadow}
       paddingEnd={8}
-      textAlign="start"
-      width="auto"
+      textAlign={textAlign}
+      width={width}
       aria-labelledby={alertTitleId}
     >
       <AlertIcon>{icon}</AlertIcon>
@@ -55,7 +60,6 @@ export const Toast: React.FC<ToastProps> = (props) => {
       </chakra.div>
       {isClosable && (
         <CloseButton
-          size="sm"
           onClick={onClose}
           position="absolute"
           insetEnd={1}
